@@ -21,23 +21,30 @@ window.geometry("700x700")
 w = 700
 h = 700
 
+p = None
+
 def learn_press():
         global learnClicked
+        global p
         learnClicked = True
         # subprocess.call("ls -l")
-        subprocess.run(["python3", "solved_hammer.py"])
+        p = subprocess.Popen(["python3", "solved_hammer.py"])
+        # subprocess.run(["python3", "solved_hammer.py"])
         print("LEARN!")
 
 def play_press():
         global playClicked
+        global p
         playClicked = True
-        subprocess.run(["python3", "main.py"])
+        # subprocess.run(["python3", "main.py"])
+        p = subprocess.Popen(["python3", "main.py"])
         print("PLAY!")
 
 def exit_press():
         global exitClicked
         exitClicked = True
         print("EXIT!")
+        p.terminate()
         window.destroy()
 
 learnClicked = False

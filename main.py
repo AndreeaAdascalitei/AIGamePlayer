@@ -45,7 +45,7 @@ def game2():
     print('Starting game 2...')
 
 
-    env = CartPoleEnv() #gym.make("MountainCar-v0")
+    env = gym.make("MountainCar-v0")
     env.reset()
 
     state = None
