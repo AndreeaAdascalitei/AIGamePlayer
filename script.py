@@ -23,22 +23,40 @@ h = 700
 
 p = None
 
+learn = None
+play = None
+
+playClicked = False
+learnClicked = False
+
 def learn_press():
         global learnClicked
         global p
-        learnClicked = True
-        # subprocess.call("ls -l")
-        p = subprocess.Popen(["python3", "solved_hammer.py"])
-        # subprocess.run(["python3", "solved_hammer.py"])
-        print("LEARN!")
+
+        learnClicked = not learnClicked
+
+        if learnClicked:
+            learn.config(text="Exit Learn!")
+            p = subprocess.Popen(["python3", "solved_hammer.py"])
+            print("LEARN!")
+        else:
+            learn.config(text="Learn!")
+            p.terminate()
+
 
 def play_press():
         global playClicked
         global p
-        playClicked = True
-        # subprocess.run(["python3", "main.py"])
-        p = subprocess.Popen(["python3", "main.py"])
-        print("PLAY!")
+
+        playClicked = not playClicked
+
+        if playClicked:
+            play.config(text="Exit Play!")
+            p = subprocess.Popen(["python3", "main.py"])
+            print("PLAY!")
+        else:
+            play.config(text="Play!")
+            p.terminate()
 
 def exit_press():
         global exitClicked

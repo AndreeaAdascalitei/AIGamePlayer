@@ -23,6 +23,8 @@ def game1():
 
     state = None
 
+    env.render()
+
     while True:
         if key != None:
             state = None
