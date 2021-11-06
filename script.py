@@ -38,6 +38,7 @@ def exit_press():
         global exitClicked
         exitClicked = True
         print("EXIT!")
+        window.destroy()
 
 learnClicked = False
 playClicked = False
