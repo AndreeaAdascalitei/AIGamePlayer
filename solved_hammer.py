@@ -117,7 +117,7 @@ def CartPoleAgent(alpha, W, V):
                     #------------------------------------------
                 #--------------------------------------------------
                 avgReward = sum(R)/solvedEpisodes
-                print(f"[{episode:3d}:{totalReward:3.0f}] R:{avgReward:6.2f} mp:{mean(PO):7.3f} mn:{mean(NO):7.3f}  len(H):{len(H):4d}  W:{W[:2]}", flush=True)
+                # print(f"[{episode:3d}:{totalReward:3.0f}] R:{avgReward:6.2f} mp:{mean(PO):7.3f} mn:{mean(NO):7.3f}  len(H):{len(H):4d}  W:{W[:2]}", flush=True)
                 #--------------------------------------------------
                 if avgReward == episodeLength:
                     print("Solved.")

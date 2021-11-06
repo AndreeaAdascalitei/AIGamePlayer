@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from tkinter import *
 from tkinter.ttk import *
 from PIL import Image, ImageTk
@@ -7,6 +5,7 @@ from urllib.request import urlopen
 from io import BytesIO
 import base64
 import requests
+import subprocess
 
 try:
     from StringIO import StringIO ## for Python 2
@@ -22,20 +21,31 @@ window.geometry("700x700")
 w = 700
 h = 700
 
+p = None
+
 def learn_press():
-	global learnClicked
-	learnClicked = True
-	print("LEARN!")
+        global learnClicked
+        global p
+        learnClicked = True
+        # subprocess.call("ls -l")
+        p = subprocess.Popen(["python3", "solved_hammer.py"])
+        # subprocess.run(["python3", "solved_hammer.py"])
+        print("LEARN!")
 
 def play_press():
-	global playClicked
-	playClicked = True
-	print("PLAY!")
+        global playClicked
+        global p
+        playClicked = True
+        # subprocess.run(["python3", "main.py"])
+        p = subprocess.Popen(["python3", "main.py"])
+        print("PLAY!")
 
 def exit_press():
-	global exitClicked
-	exitClicked = True
-	print("EXIT!")
+        global exitClicked
+        exitClicked = True
+        print("EXIT!")
+        p.terminate()
+        window.destroy()
 
 learnClicked = False
 playClicked = False
