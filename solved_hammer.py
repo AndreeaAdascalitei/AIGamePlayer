@@ -59,6 +59,9 @@ W = uniform(low=-1.0, high=1.0, size=expandedLength)
 # Fix the norm of the output weights to 'fixedNorm'.
 W *= fixedNorm/norm(W)
 
+print(W)
+print(V)
+
 #------------------------------------------------------------------
 
 def CartPoleAgent(alpha, W, V):

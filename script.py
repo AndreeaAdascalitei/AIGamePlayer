@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from tkinter import *
 from tkinter.ttk import *
 from PIL import Image, ImageTk
@@ -7,6 +5,7 @@ from urllib.request import urlopen
 from io import BytesIO
 import base64
 import requests
+import subprocess
 
 try:
     from StringIO import StringIO ## for Python 2
@@ -23,19 +22,22 @@ w = 700
 h = 700
 
 def learn_press():
-	global learnClicked
-	learnClicked = True
-	print("LEARN!")
+        global learnClicked
+        learnClicked = True
+        # subprocess.call("ls -l")
+        subprocess.run(["python3", "solved_hammer.py"])
+        print("LEARN!")
 
 def play_press():
-	global playClicked
-	playClicked = True
-	print("PLAY!")
+        global playClicked
+        playClicked = True
+        subprocess.run(["python3", "main.py"])
+        print("PLAY!")
 
 def exit_press():
-	global exitClicked
-	exitClicked = True
-	print("EXIT!")
+        global exitClicked
+        exitClicked = True
+        print("EXIT!")
 
 learnClicked = False
 playClicked = False
